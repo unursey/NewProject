@@ -20,9 +20,13 @@ const timer = (deadline) => {
   const updateClock = () => {
     let getTime = getTimeRemaining();
 
-    timerHours.textContent = getTime.hours;
-    timerMinutes.textContent = getTime.minutes;
-    timerSeconds.textContent = getTime.seconds;
+    const addZero = (number) => {
+      return String(number).length === 1 ? `0${number}` : number;
+    };
+
+    timerHours.textContent = addZero(getTime.hours);
+    timerMinutes.textContent = addZero(getTime.minutes);
+    timerSeconds.textContent = addZero(getTime.seconds);
 
     if (getTime.timeRemaining < 0) {
       clearInterval(setIn);
@@ -30,7 +34,8 @@ const timer = (deadline) => {
       timerMinutes.textContent = "00";
       timerHours.textContent = "00";
     }
-    if (getTime.seconds >= 0 && getTime.seconds < 10) {
+
+    /*if (getTime.seconds >= 0 && getTime.seconds < 10) {
       timerSeconds.textContent = "0" + timerSeconds.textContent;
     }
     if (getTime.minutes >= 0 && getTime.minutes < 10) {
@@ -38,7 +43,7 @@ const timer = (deadline) => {
     }
     if (getTime.hours >= 0 && getTime.hours < 10) {
       timerHours.textContent = "0" + timerHours.textContentt;
-    }
+    }*/
     console.log("Ура-Ура");
   };
   updateClock();
