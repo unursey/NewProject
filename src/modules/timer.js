@@ -41,9 +41,8 @@ const timer = (deadline) => {
     }
     console.log("Ура-Ура");
   };
-
+  updateClock();
   setIn = setInterval(updateClock, 1000);
-  //updateClock();
 };
 
 export default timer;
