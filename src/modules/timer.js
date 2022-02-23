@@ -34,17 +34,6 @@ const timer = (deadline) => {
       timerMinutes.textContent = "00";
       timerHours.textContent = "00";
     }
-
-    /*if (getTime.seconds >= 0 && getTime.seconds < 10) {
-      timerSeconds.textContent = "0" + timerSeconds.textContent;
-    }
-    if (getTime.minutes >= 0 && getTime.minutes < 10) {
-      timerMinutes.textContent = "0" + timerMinutes.textContent;
-    }
-    if (getTime.hours >= 0 && getTime.hours < 10) {
-      timerHours.textContent = "0" + timerHours.textContentt;
-    }*/
-    console.log("Ура-Ура");
   };
   updateClock();
   setIn = setInterval(updateClock, 1000);

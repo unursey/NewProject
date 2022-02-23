@@ -1,6 +1,0 @@
-const twoJs = () => {
-  const two = "two.js";
-  console.log(two);
-};
-
-export default twoJs;
