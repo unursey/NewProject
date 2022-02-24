@@ -14,8 +14,10 @@ const menu = () => {
 
   menuBtn.addEventListener("click", handleMenu);
 
-  closeBtn.addEventListener("click", handleMenu);
-
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    handleMenu();
+  });
   menuItems.forEach((menuItem) =>
     menuItem.addEventListener("click", handleMenu)
   );
