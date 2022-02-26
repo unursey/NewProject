@@ -19,6 +19,19 @@ const valid = () => {
     });
   };
 
+  const edit = function (param) {
+    param.addEventListener("blur", (e) => {
+      e.target.value = e.target.value.replace(/[-]+/g, "-");
+      e.target.value = e.target.value.replace(/[ ]+/g, " ");
+      e.target.value = e.target.value.replace(/[^а-яА-Я, ,-]/g, "");
+      e.target.value = e.target.value.replace(/^[ ,-]+/, "");
+      e.target.value = e.target.value.replace(/[ ,-]+$/, "");
+      e.target.value = e.target.value.replace(/^[а-я]/, (n) => n.toUpperCase());
+    });
+  };
+
+  edit(placeholder);
+
   formName.forEach((elem) => {
     validText(elem);
   });
