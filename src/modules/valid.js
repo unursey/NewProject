@@ -13,19 +13,17 @@ const valid = () => {
   const placeholder = document.getElementById("form2-message");
   const topName = document.getElementById("form2-name");
 
-  formName.forEach((elem) => {
-    elem.addEventListener("input", (e) => {
+  const validText = function (param) {
+    param.addEventListener("input", (e) => {
       e.target.value = e.target.value.replace(/[^а-яА-Я, ,-]/, "");
     });
-  });
+  };
 
-  placeholder.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^а-яА-Я, ,-]/, "");
+  formName.forEach((elem) => {
+    validText(elem);
   });
-
-  topName.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^а-яА-Я, ,-]/, "");
-  });
+  validText(placeholder);
+  validText(topName);
 
   email.forEach((elem) => {
     elem.addEventListener("input", (e) => {
