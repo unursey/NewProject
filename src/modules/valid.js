@@ -34,10 +34,11 @@ const valid = () => {
 
   formName.forEach((elem) => {
     validText(elem);
+    edit(elem);
   });
   validText(placeholder);
   validText(topName);
-
+  edit(topName);
   email.forEach((elem) => {
     elem.addEventListener("input", (e) => {
       e.target.value = e.target.value.replace(

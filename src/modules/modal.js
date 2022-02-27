@@ -11,7 +11,7 @@ const modal = () => {
     idInterval = requestAnimationFrame(modaleAnimate);
     modale.style.left = count * 2 + "%";
 
-    if (parseFloat(modale.style.left) > 38) {
+    if (parseFloat(modale.style.left) > 36) {
       cancelAnimationFrame(idInterval);
     }
   };
@@ -22,7 +22,7 @@ const modal = () => {
       if (width > 768) {
         modaleAnimate();
       } else {
-        modale.style.left = "30%";
+        modale.style.left = "20%";
       }
     });
   });
