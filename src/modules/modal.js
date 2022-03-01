@@ -33,7 +33,7 @@ const modal = () => {
       !e.target.closest(".popup-content") ||
       e.target.classList.contains("popup-close")
     ) {
-      e.preventDefault();
+      //e.preventDefault();
       modal.style.display = "none";
       count = 0;
     }
