@@ -2,7 +2,6 @@ const modal = () => {
   const modal = document.querySelector(".popup");
   const modale = document.querySelector(".popup-content");
   const buttons = document.querySelectorAll(".popup-btn");
-  const closeBtn = modal.querySelector(".popup-close");
 
   let idInterval;
   let count = 0;
@@ -27,10 +26,17 @@ const modal = () => {
     });
   });
 
-  closeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    modal.style.display = "none";
-    count = 0;
+  //  e.preventDefault();
+
+  modal.addEventListener("click", (e) => {
+    if (
+      !e.target.closest(".popup-content") ||
+      e.target.classList.contains("popup-close")
+    ) {
+      e.preventDefault();
+      modal.style.display = "none";
+      count = 0;
+    }
   });
 };
 
