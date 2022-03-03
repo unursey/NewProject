@@ -1,9 +1,11 @@
+import { animate } from "./helpers";
+
 const modal = () => {
   const modal = document.querySelector(".popup");
   const modale = document.querySelector(".popup-content");
   const buttons = document.querySelectorAll(".popup-btn");
 
-  let idInterval;
+  /* let idInterval;
   let count = 0;
   const modaleAnimate = () => {
     count++;
@@ -13,13 +15,22 @@ const modal = () => {
     if (parseFloat(modale.style.left) > 36) {
       cancelAnimationFrame(idInterval);
     }
-  };
+  };*/
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       let width = document.documentElement.clientWidth;
       modal.style.display = "block";
       if (width > 768) {
-        modaleAnimate();
+        //modaleAnimate();
+        animate({
+          duration: 1200,
+          timing(timeFraction) {
+            return Math.pow(timeFraction, -2);
+          },
+          draw(progress) {
+            modale.style.left = progress * 36 + "%";
+          },
+        });
       } else {
         modale.style.left = "20%";
       }
@@ -35,7 +46,7 @@ const modal = () => {
     ) {
       //e.preventDefault();
       modal.style.display = "none";
-      count = 0;
+      //count = 0;
     }
   });
 };
