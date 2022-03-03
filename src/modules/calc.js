@@ -35,12 +35,12 @@ const calc = (price = 100) => {
     total.textContent = totalValue;
 
     animate({
-      duration: 100,
+      duration: 1000,
       timing(timeFraction) {
-        return timeFraction;
+        return parseInt(timeFraction * totalValue);
       },
       draw(progress) {
-        total.textContent = progress + "руб.";
+        total.textContent = progress;
       },
     });
   };
