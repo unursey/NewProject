@@ -15,6 +15,8 @@ const calc = (price = 100) => {
     let totalValue = 0;
     let calcCountValue = 1;
     let calcDayValue = 1;
+    let totalTextContent;
+    let n;
 
     if (calcDay.value && calcDay.value < 5) {
       calcDayValue = 2;
@@ -32,15 +34,24 @@ const calc = (price = 100) => {
     } else {
       totalValue = 0;
     }
-    total.textContent = totalValue;
+    totalTextContent = +total.textContent;
+
+    n = Math.abs(totalValue - totalTextContent);
 
     animate({
       duration: 1000,
       timing(timeFraction) {
-        return parseInt((totalValue + timeFraction * totalValue) / 2);
+        return timeFraction;
       },
+
       draw(progress) {
-        total.textContent = progress;
+        if (totalValue > totalTextContent) {
+          total.textContent = Math.round(totalTextContent + n * progress);
+        }
+        if (totalValue < totalTextContent) {
+          console.log(totalTextContent);
+          total.textContent = Math.round(totalTextContent - n * progress);
+        }
       },
     });
   };
