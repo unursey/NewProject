@@ -37,7 +37,7 @@ const calc = (price = 100) => {
     animate({
       duration: 1000,
       timing(timeFraction) {
-        return parseInt(timeFraction * totalValue);
+        return parseInt((totalValue + timeFraction * totalValue) / 2);
       },
       draw(progress) {
         total.textContent = progress;
