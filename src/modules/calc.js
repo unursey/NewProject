@@ -46,11 +46,10 @@ const calc = (price = 100) => {
 
       draw(progress) {
         if (totalValue > totalTextContent) {
-          total.textContent = Math.round(totalTextContent + n * progress);
+          total.textContent = parseInt(totalTextContent + n * progress);
         }
         if (totalValue < totalTextContent) {
-          console.log(totalTextContent);
-          total.textContent = Math.round(totalTextContent - n * progress);
+          total.textContent = parseInt(totalTextContent - n * progress);
         }
       },
     });
