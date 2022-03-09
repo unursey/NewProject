@@ -6,6 +6,7 @@ import tabs from "./modules/tabs";
 import calc from "./modules/calc";
 import addDots from "./modules/addDots";
 import slider from "./modules/slider";
+import sendForm from "./modules/sendForm";
 timer("24 february 2022");
 menu();
 addDots();
@@ -14,3 +15,12 @@ valid();
 tabs();
 slider();
 calc(100);
+sendForm({
+  formId: ["form1", "form2", "form3"],
+  someElem: [
+    {
+      type: "block",
+      id: "total",
+    },
+  ],
+});
