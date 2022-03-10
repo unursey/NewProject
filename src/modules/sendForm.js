@@ -2,6 +2,7 @@ const sendForm = ({ formId, someElem = [] }) => {
   formId.forEach(function (idForm) {
     const form = document.getElementById(idForm);
     const statusBlock = document.createElement("div");
+    statusBlock.className = "hm";
     //const loadText = "Загрузка...";
     const errorText = "Ошибка...";
     const successText = "Спасибо! Наш менеджер с Вами свяжется!";
@@ -90,6 +91,17 @@ const sendForm = ({ formId, someElem = [] }) => {
         alert("Данные не валидны!");
         form.append(statusBlock);
         statusBlock.textContent = errText;
+
+        const input = document.querySelectorAll("input");
+        const hm = document.querySelector(".hm");
+        input.forEach(function (item) {
+          item.onfocus = function () {
+            if (hm) {
+              hm.innerHTML = "";
+              hm.remove();
+            }
+          };
+        });
       }
     };
     try {
