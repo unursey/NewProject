@@ -8,7 +8,9 @@ import addDots from "./modules/addDots";
 import slider from "./modules/slider";
 import sendForm from "./modules/sendForm";
 import { swiper } from "./modules/swiper";
+
 timer("15 octomber 2022");
+
 menu();
 addDots();
 modal();
